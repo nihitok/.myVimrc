@@ -81,8 +81,8 @@ filetype plugin indent on
 syntax on
 " set t_Co=256
 "colorscheme wombat
-"colorscheme h2u_black
-colorscheme desert
+"colorscheme desert
+colorscheme h2u_black
 
 " 検索時ハイライト
 :set hlsearch
