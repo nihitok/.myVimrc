@@ -78,6 +78,7 @@ let g:vimproc_dll_path = $VIMRUNTIME . '/autoload/proc.so'
 filetype plugin indent on
 
 " colorscheme
+syntax on
 " set t_Co=256
 "colorscheme wombat
 "colorscheme h2u_black
