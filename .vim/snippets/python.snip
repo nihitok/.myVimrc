@@ -1,0 +1,24 @@
+# def snippet
+
+# kay framework snippet
+
+snippet CategoryCRUDViewGroup
+	# put this in urls.py
+	from kay.generics import admin_required
+	from kay.generics import crud
+	
+	class CategoryCRUDViewGroup(crud.CRUDViewGroup):
+		model = 'app.models.${1: model name}'
+		form = 'myapp.forms.${2: form name}'
+		authorize = admin_required
+
+
+snippet forms_template
+	# put this in forms.py
+	from kay.utils import forms
+	from kay.utils.forms.modelform import ModelForm
+	
+	class CommentForm(ModelForm):
+		class Meta:
+			model = ${1: model name}
+			exclude = ('someproperty', 'created')
