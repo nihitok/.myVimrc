@@ -21,6 +21,10 @@ NeoBundle 'abudden/TagHighlight'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'nvie/vim-rst-tables'
 
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'daisuzu/facebook.vim'
+
 "NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
