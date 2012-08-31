@@ -79,7 +79,8 @@ filetype plugin indent on
 
 " colorscheme
 " set t_Co=256
-colorscheme wombat
+"colorscheme wombat
+colorscheme h2u_black
 
 " 検索時ハイライト
 :set hlsearch
