@@ -1,3 +1,5 @@
 .vim/bundle/*
 !.vim/bundle/.empty
+.vim/.vimbackup/*
+!.vim/.vimbackup/.empty
 .DS_Store

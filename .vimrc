@@ -2,70 +2,87 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-"Bundle 'tpope/vim-repeat'
-"Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-endwise'
-"Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rvm'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/nerdcommenter'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimshell'
-" Bundle 'Shougo/vimproc'
-Bundle 'csexton/rvm.vim'
-Bundle 'altercation/vim-colors-solarized'
-"Bundle 'cucumber/cucumber'
-Bundle 'thinca/vim-quickrun'
-Bundle 'tomasr/molokai'
-"Bundle 'leshill/vim-json'
-Bundle 'taku-o/vim-ro-when-swapfound'
-Bundle 'taku-o/vim-toggle'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'mattn/calendar-vim'
-Bundle 'kchmck/vim-coffee-script'
-"Bundle 'ujihisa/rdoc.vim'
-"Bundle 'briancollins/vim-jst'
-Bundle 'bbommarito/vim-slim'
-"Bundle 'pekepeke/titanium-vim'
-Bundle 'groenewege/vim-less'
-Bundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
 
-Bundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'vim-scripts/trinity.vim'
+NeoBundle 'vim-scripts/Source-Explorer-srcexpl.vim'
+NeoBundle 'vim-scripts/DrawIt'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'abudden/TagHighlight'
+
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'nvie/vim-rst-tables'
+
+"NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-rails'
+"NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+"NeoBundle 'tpope/vim-endwise'
+"NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-rvm'
+"NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell'
+" NeoBundle 'Shougo/vimproc'
+NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'cucumber/cucumber'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tomasr/molokai'
+"NeoBundle 'leshill/vim-json'
+NeoBundle 'taku-o/vim-ro-when-swapfound'
+NeoBundle 'taku-o/vim-toggle'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'mattn/calendar-vim'
+NeoBundle 'kchmck/vim-coffee-script'
+"NeoBundle 'ujihisa/rdoc.vim'
+"NeoBundle 'briancollins/vim-jst'
+NeoBundle 'bbommarito/vim-slim'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'scrooloose/nerdtree'
+
+NeoBundle 'vim-ruby/vim-ruby'
 
 " for Python
-Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'sontek/rope-vim'
-Bundle 'reinh/vim-makegreen'
-Bundle 'lambdalisue/nose.vim'
+NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'sontek/rope-vim'
+NeoBundle 'reinh/vim-makegreen'
+NeoBundle 'lambdalisue/nose.vim'
 
 " for PHP
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
-" for js
-" Bundle 'basyura/jslint.vim'
-" jslint.vim
-"function! s:javascript_filetype_settings()
-"  autocmd BufLeave     <buffer> call jslint#clear()
-"  autocmd BufWritePost <buffer> call jslint#check()
-"  autocmd CursorMoved  <buffer> call jslint#message()
-"endfunction
-"autocmd FileType javascript call s:javascript_filetype_settings()
-
-
-Bundle 'smartchr'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'mattn/zencoding-vim'
+NeoBundle 'smartchr'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'mattn/zencoding-vim'
 " ------------
+
+filetype plugin indent on     " Required!
+
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+      \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+endif
+
+
+" snippetの配置場所
+let g:neocomplcache_snippets_dir='~/.vim/snippets'
+" キーマップ
+imap <C-k> <plug>(neocomplcache_snippets_expand)
+smap <C-k> <plug>(neocomplcache_snippets_expand)
+
+
 
 let g:vimproc_dll_path = $VIMRUNTIME . '/autoload/proc.so'
 
@@ -73,15 +90,12 @@ let g:vimproc_dll_path = $VIMRUNTIME . '/autoload/proc.so'
 ":helptags ~/.vim/doc
 ":set helplang=ja
 
-" coffee-script
-" call pathogen#infect()
-filetype plugin indent on
 
 " colorscheme
 syntax on
 " set t_Co=256
-"colorscheme wombat
-"colorscheme desert
+" colorscheme wombat
+" colorscheme desert
 colorscheme h2u_black
 
 " 検索時ハイライト
@@ -92,14 +106,17 @@ set encoding=utf-8
 set fileencoding=utf-8
 " 新しい行のインデントを現在行と同じにする
 set autoindent
+" バックスペースでインデントや改行を削除できるようにする
+set backspace=2
+
 " バックアップファイルを作るディレクトリ
-set backupdir=$HOME/.vimbackup
+set backupdir=~/.vim/.vimbackup
 " ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
 set browsedir=buffer 
 " Vi互換をオフ
 set nocompatible
 " スワップファイル用のディレクトリ
-set directory=~/.vimbackup
+set directory=~/.vim/.vimbackup
 " タブの代わりに空白文字を挿入する
 set expandtab
 " 変更中のファイルでも、保存しないで他のファイルを表示
@@ -136,6 +153,8 @@ set autoread
 set nowrap
 "htmlには行番号をつけない
 let html_number_lines = 0
+" コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
+set wildmenu
 
 " visual モードで連続して、インデント出来るように設定
 vnoremap <silent> > >gv
@@ -191,20 +210,15 @@ smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 " zen-coding config
 imap <C-e> <C-y>,
 
+" coffee-script
+" call pathogen#infect()
 
-" 新規作成する際にテンプレートを読み込む
-augroup templates
-  autocmd!
-  autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
-  autocmd BufNewFile *.haml 0r ~/.vim/templates/skel.haml
-  autocmd BufNewFile *.scala 0r ~/.vim/templates/skel.scala
-augroup END
+" coffee-script automatic compile
+" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 
 " vimshell
 " let g:VimShell_EnableInteractive = 1
 
-" coffee-script automatic compile
-" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 
 " markdown test
 nnoremap \m :!perl ~/.nihitok_env/app/pl/Markdown.pl "%" > /tmp/__markdown.html; echo '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>' >> /tmp/__markdown.html; open -a Google\ Chrome /tmp/__markdown.html<CR><CR>
@@ -262,9 +276,6 @@ let g:neocomplcache_same_filetype_lists = {
 " filetype
 "===========================================================
 
-" 適切なfiletypeに調節
-filetype plugin on
-
 augroup readCorrectScheme
   autocmd!
   "scaml fileをhamlとして読み込む
@@ -290,16 +301,13 @@ augroup END
 
 
 " for Python
-
-au FileType python setl autoindent
-au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType python setl tabstop=8 expandtab shiftwidth=2 softtabstop=2
+"au FileType python setl autoindent
+"au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"au FileType python setl tabstop=8 expandtab shiftwidth=2 softtabstop=2
 
 " expandtab を解除
 " au FileType python setl noexpandtab
-
-
 
 " for rails setting
 augroup railsSetting
@@ -328,7 +336,7 @@ let g:rubycomplete_rails = 1
 " snipet text setting
 
 " expandtab を解除
-au FileType snip setl noexpandtab
+"au FileType snip setl noexpandtab
 
 " Tabでスニペットを展開
 "imap <expr><Tab> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -376,9 +384,17 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 
 
 if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 15
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
+  set transparency=20
+  set guifont=Inconsolata:h15
 endif
+
+
+
+
+
+syntax match atVariable '^@\w*'
+hi link atVariable Keyword
+
+"全角スペースを視覚化
+"hi ZenkakuSpace guibg=white
+"match ZenkakuSpace /　/
