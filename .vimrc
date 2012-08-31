@@ -15,11 +15,14 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-scripts/trinity.vim'
 NeoBundle 'vim-scripts/Source-Explorer-srcexpl.vim'
 NeoBundle 'vim-scripts/DrawIt'
+NeoBundle 'vim-scripts/DirDiff.vim'
+
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'abudden/TagHighlight'
 
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'nvie/vim-rst-tables'
+NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tyru/open-browser.vim'
