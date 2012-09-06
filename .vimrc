@@ -83,12 +83,6 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 
-" snippetの配置場所
-let g:neocomplcache_snippets_dir='~/.vim/snippets'
-" キーマップ
-imap <C-k> <plug>(neocomplcache_snippets_expand)
-smap <C-k> <plug>(neocomplcache_snippets_expand)
-
 
 
 let g:vimproc_dll_path = $VIMRUNTIME . '/autoload/proc.so'
@@ -135,7 +129,7 @@ set history=100
 " タブ文字、行末など不可視文字を表示する
 set list
 " listで表示される文字のフォーマットを指定する
-set listchars=eol:$,tab:>-,extends:<
+set listchars=eol:$,tab:»-,extends:<
 " 行番号を表示する
 set number
 " シフト移動幅
@@ -160,6 +154,8 @@ set autoread
 set nowrap
 "htmlには行番号をつけない
 let html_number_lines = 0
+autocmd FileType html setlocal noexpandtab
+
 " コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
 set wildmenu
 
@@ -182,7 +178,7 @@ let g:neocomplcache_enable_at_startup = 1
 " 区切り補完の有効化
 let g:neocomplcache_enable_underbar_completion = 1
 " snipet dir
-let g:neocomplcache_snippetsdir = '~/.vim/snippets'
+"let g:neocomplcache_snippetsdir = '~/.vim/bundle/neocomplcache-snippets-complete/autoload/neocomplcache/sources/snippets_complete'
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Use camel case completion.
@@ -197,20 +193,38 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 
-" Tabでスニペットを展開
-" imap <expr><Tab> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<Tab>"
-" smap <expr><Tab> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<Tab>"
+" スニペットを展開する。スニペットが関係しないところでは行末まで削除
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+
+"tabで補完候補の選択を行う
+inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+
+
 
 
 " Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+
 
 
 " プラグインごとの設定

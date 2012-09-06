@@ -10,3 +10,13 @@ Do!
 then
 
 make, proc.so
+
+git setting
+
+    git config --global color.ui auto
+    git config --global user.name "nihitok"
+    git config --global user.email "nihitok@gmail.com"
+
+Don't send spam mails.
+
+
