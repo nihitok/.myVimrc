@@ -30,7 +30,7 @@ NeoBundle 'daisuzu/facebook.vim'
 
 "NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-rails'
+" NeoBundle 'tpope/vim-rails'
 "NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 "NeoBundle 'tpope/vim-endwise'
@@ -242,7 +242,7 @@ imap <C-e> <C-y>,
 
 
 " markdown test
-nnoremap \m :!perl ~/.nihitok_env/app/pl/Markdown.pl "%" > /tmp/__markdown.html; echo '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>' >> /tmp/__markdown.html; open -a Google\ Chrome /tmp/__markdown.html<CR><CR>
+nnoremap \m :!perl ~/.vim/etc/Markdown.pl "%" > /tmp/__markdown.html; echo '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>' >> /tmp/__markdown.html; open -a Google\ Chrome /tmp/__markdown.html<CR><CR>
 
 " Alignを日本語環境で使用するための設定
 :let g:Align_xstrlen = 3
