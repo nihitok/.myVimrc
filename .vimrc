@@ -242,7 +242,7 @@ imap <C-e> <C-y>,
 
 
 " markdown test
-nnoremap \m :!perl ~/.vim/etc/Markdown.pl "%" > /tmp/__markdown.html; echo '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>' >> /tmp/__markdown.html; open -a Google\ Chrome /tmp/__markdown.html<CR><CR>
+nnoremap \m :!perl ~/.vim/etc/Markdown.pl "%" > /tmp/__markdown.html; echo '<link href="https://raw.github.com/gist/2554919/2e66cabdafe1c9a7f354aa2ebf5bc38265e638e5/github.css" rel="stylesheet"></link>' >> /tmp/__markdown.html; open -a Google\ Chrome /tmp/__markdown.html<CR><CR>
 
 " Alignを日本語環境で使用するための設定
 :let g:Align_xstrlen = 3
