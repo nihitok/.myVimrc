@@ -58,7 +58,7 @@ NeoBundle 'bbommarito/vim-slim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'scrooloose/nerdtree'
 
-NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundle 'vim-ruby/vim-ruby'
 
 " for Python
 NeoBundle 'mitechie/pyflakes-pathogen'
@@ -344,9 +344,9 @@ augroup railsSetting
 augroup END
 
 "Rubyのオムニ補完を設定(ft-ruby-omni)
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
+"let g:rubycomplete_buffer_loading = 1
+"let g:rubycomplete_classes_in_global = 1
+"let g:rubycomplete_rails = 1
 
 ".rhtmlと.rbでタブ幅を変更
 "au BufNewFile,BufRead *.rhtml   set nowrap tabstop=2 shiftwidth=2
@@ -419,3 +419,6 @@ hi link atVariable Keyword
 "全角スペースを視覚化
 "hi ZenkakuSpace guibg=white
 "match ZenkakuSpace /　/
+
+
+let g:syntastic_ruby_exec = 'ruby19'

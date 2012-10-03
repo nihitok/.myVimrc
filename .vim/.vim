@@ -1,0 +1,1 @@
+/Users/kawaharanihito/.myVimrc/.vim
