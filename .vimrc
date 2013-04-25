@@ -9,7 +9,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+" NeoBundle 'Shougo/neocomplcache-snippets-complete'
 
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-scripts/trinity.vim'
@@ -154,7 +154,7 @@ set autoread
 set nowrap
 "htmlには行番号をつけない
 let html_number_lines = 0
-autocmd FileType html setlocal noexpandtab
+" autocmd FileType html setlocal noexpandtab
 
 " コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
 set wildmenu
@@ -369,7 +369,7 @@ augroup END
 
 
 
-""" unite.vim
+" unite.vim
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
 " バッファ一覧
@@ -406,19 +406,16 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 
 if has("gui_running")
   set transparency=20
-  set guifont=Inconsolata:h15
+  set guifont=Ricty-Regular:h15
 endif
-
-
-
 
 
 syntax match atVariable '^@\w*'
 hi link atVariable Keyword
 
 "全角スペースを視覚化
-"hi ZenkakuSpace guibg=white
-"match ZenkakuSpace /　/
+hi ZenkakuSpace guibg=white
+match ZenkakuSpace /　/
 
 
 let g:syntastic_ruby_exec = 'ruby19'
