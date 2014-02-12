@@ -54,7 +54,7 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'kchmck/vim-coffee-script'
 "NeoBundle 'ujihisa/rdoc.vim'
 "NeoBundle 'briancollins/vim-jst'
-NeoBundle 'bbommarito/vim-slim'
+"NeoBundle 'bbommarito/vim-slim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'scrooloose/nerdtree'
 
@@ -71,7 +71,7 @@ NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'smartchr'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 " ------------
 
 filetype plugin indent on     " Required!
@@ -154,7 +154,8 @@ set autoread
 set nowrap
 "htmlには行番号をつけない
 let html_number_lines = 0
-" autocmd FileType html setlocal noexpandtab
+autocmd FileType php setlocal noexpandtab
+autocmd FileType php setlocal listchars=eol:$,tab:\ \ ,extends:<
 
 " コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
 set wildmenu
@@ -405,8 +406,8 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 
 
 if has("gui_running")
-  set transparency=20
-  set guifont=Ricty-Regular:h15
+  set transparency=24
+  set guifont=Ricty-Regular:h20
 endif
 
 

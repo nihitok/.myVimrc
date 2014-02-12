@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/nihito/Desktop/old_dp/dp3'
+let g:netrw_dirhist_2='/Users/nkawahar/Desktop/dp/app/models/receipt'
+let g:netrw_dirhist_3='/Users/nkawahar/Desktop/dp/db/migrate'
