@@ -18,7 +18,7 @@ NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/DirDiff.vim'
 
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'abudden/TagHighlight'
+NeoBundle 'vim-scripts/TagHighlight'
 
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'nvie/vim-rst-tables'
